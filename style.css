@@ -21,25 +21,28 @@
     font-weight: 800; 
 }
 
+body {
+    margin:0;
+}
 .loading {
     position:fixed;
     height:100%;
     width:100%;
     margin:0 auto;
-    background-color:red;
-    animation:opacity 1s;
+    background-color:grey;
+    animation:opacity 1s 2s;
     animation-fill-mode:forwards;
     z-index:3;
   }
 
   .loading-bar {
-    border:3px grey solid;
+    border:3px black solid;
     border-radius:50%;
     margin-left:auto;
     margin-right: auto;
     height:100px;
     width:100px;
-    transform:translate(-50%, -50%);
+    //transform:translate(-50%, -50%);
   }
 
   @keyframes opacity {
@@ -79,20 +82,16 @@ a {
 h2 {
     padding-left:20px;
     font-weight:800;
-    font-family: "shrikhand";
     font-size:28px;
     padding:20px 0 0 0;
-    margin-left:25px;
-    display:flex;
-    justify-content: space-between;
-    align-items: baseline;
+    margin: 0 0 15px 25px;
     }
 }
 
-header img {
-    display:block;
-    margin:auto;
-    width:200px;
+.index-header img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 header form {
@@ -101,29 +100,24 @@ header form {
     margin-top:0px;
     text-align: center;
     padding:15px 0;
-    z-index:1;
     margin-bottom:0;
 }
 
-header p:nth-child(1) {
-    box-shadow: 0px 2px 5px rgb(207, 207, 207);
-    margin-bottom: 0;
-    z-index:2;
-    padding:15px;
-}
-
-header p:nth-child(2) {
-    background-color: #efefef;
-    width:100%;
-    margin-top:0px;
-    text-align: center;
-    padding:15px 0;
-    z-index:1;
-    margin-bottom:0;
-}
 
 .fa-location-dot {
     padding-right:10px;
+    font-size:20px;
+}
+
+input {
+    border:none;
+    background-color: #efefef;
+    padding:10px;
+}
+
+input::placeholder {
+    color:black;
+    font-size: 16px;
 }
 
 .search-section {
@@ -152,8 +146,8 @@ header p:nth-child(2) {
 
 .search-section a, .search-button a {
     background: linear-gradient(to bottom right, #FF79DA, #9356DC);
-    padding:15px;
-    //width: 180px;
+    width:200px;
+    padding:15px 50px;
     text-align: center;
     border-radius:25px;
     box-shadow:0px 0px 10px rgb(217 216 216);
@@ -161,13 +155,15 @@ header p:nth-child(2) {
     font-weight:700px;
     margin-top:30px;
     margin-bottom:50px;
+    margin-left:auto;
+    margin-right:auto;
 }
 
 .all-fonctions {
     display:flex;
     align-items: center;
     gap:25px;
-    padding: 15px 20px 50px 20px;
+    padding: 10px 20px 30px 20px;
 }
 
 .fonction {
@@ -227,8 +223,6 @@ header p:nth-child(2) {
     margin: auto;
     display:flex;
     flex-direction:column;
-    position:relative;
-    //overflow:auto;
 }
 
 .restaurant-article h3, p:last-child {
@@ -298,15 +292,23 @@ article img {
 
 /*STYLE DES PAGES */
 
-.underline {
-    border-top:2px #99E2D0 solid;
-    width:45px;
-    padding-bottom:20px;
-    margin-left:15px;
+.restaurant-header img:nth-child(1){
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.header-photo {
+    height:300px;
+    object-fit: cover;
+}
+.restaurant-mainwrapper {
+    font-family:roboto;
 }
 
 header div>img {
     width:100%;
+    opacity: 0.5;
 }
 
 .main-section {
@@ -317,6 +319,16 @@ header div>img {
     margin-left:auto;
     margin-right:auto;
     display:flex;
+    flex-direction: column;
+    padding-bottom:30px;
+}
+
+.restaurant-title {
+    font-family: shrikhand;
+    display:flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding:0 30px;
 }
 
 .main-section article {
@@ -332,7 +344,6 @@ header div>img {
 
 .fa-heart {
     font-size:30px;
-    padding-right:20px;
 }
 
 .main-section h3 {
@@ -340,10 +351,24 @@ header div>img {
     padding-left:15px;
 }
 
+.all-dishes {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 30px;
+}
+
 .three-dishes {
     display:flex;
     flex-direction:column;
     gap:15px;
+}
+
+.three-dishes h3::after{
+    content:" ";
+    border-top:2px #99E2D0 solid;
+    width:45px;
+    padding-bottom:20px;
+    margin-left:15px;
 }
 
 .three-dishes article:nth-child(1) {
@@ -375,24 +400,29 @@ header div>img {
         margin:15px 0 40px 0;
     }
 
+.dish {
+    display:flex;
+    justify-content:space-between;
+}
+
 .dish div:nth-child(1) {
-    width:90%;
-    overflow: hidden;
-    white-space: nowrap;  
-    text-overflow: ellipsis; 
     display:flex;
     flex-direction: column;
+    width:70%;
 }
 
 .dish div:nth-child(2) {
     font-weight:700;
     padding-top:35px;
+    width:10%;
 }
 
 .dish div:nth-child(3) {
     background-color:#99E2D0;
-    width:65px;
+    display:flex;
+    align-items:center;
     width:0;
+    transition:transform 1s;
 }
 
 .dish h4 {
@@ -404,38 +434,51 @@ header div>img {
 .dish p {
     margin:0;
     padding: 5px 0px 10px 10px;
-    font-size: 16px;
+    font-size: 14px;
+    overflow: hidden;
+    white-space: nowrap;  
+    text-overflow: ellipsis; 
 }
 
 .fa-circle-check {
     color:white;
     font-size:25px;
-    text-justify: center;
-    text-align: center;
-    position: relative;
-    left: 70px;
-    top:20px;
-    transition: transform 1s;
+    position:relative;
+    left:75px;
 }
 
 .dish:hover div:nth-child(3) {
-    width:65px;
+    animation:grow 1s forwards;
+}
+
+@keyframes grow {
+    from {
+        width:0;
+    }
+    to {
+        width:20%;
+    }
 }
 
 .dish:hover .fa-circle-check {
-    transform:translateX(-55px) rotate(360deg);
+    animation:checktranslate 1s forwards;
 }
+
+@keyframes checktranslate {
+    to {
+        transform:translateX(-55px) rotate(360deg);
+    }
+}
+
 
 .dish:hover .price {
-    transform:translateX(-60px);
+    //animation:translate 0.3s forwards ;
 }
 
-.search-button a {
-    margin-left:auto;
-    margin-right:auto;
-    padding:15px 60px;
-    width:200px;
-    font-weight:700px;
+@keyframes translate {
+    to {
+        transform:translateX(-20px);
+    }
 }
 
 /*FIN DU STYLE DES PAGES*/
@@ -446,11 +489,13 @@ footer {
     text-align: center;
 }
 footer ul {
+    list-style-type: none;
     color:white;
     display:flex;
     flex-direction: row;
     justify-content: center;
     padding-bottom:16px;
+    margin-bottom: 0;
     gap:40px;
 }
 
@@ -458,10 +503,6 @@ footer ul {
     font-family: 'Shrikhand';
     padding-top:16px;
     font-size:18px;
-}
-
-ul {
-    list-style-type: none;
 }
 
 li {
